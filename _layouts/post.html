@@ -1,46 +1,107 @@
-<!DOCTYPE html>
-<html lang="en" itemscope itemtype="http://schema.org/BlogPosting">
-    {% include head.html %}
-    <body class="has-push-menu">
-        {% include minutes-to-read.html %}
-        {% include svg-icons.html %}
-        {% include header.html %}
-        <section class="post">
+---
+layout: default
+disqus: false
+archive: false
+post_class: post-template
+---
 
-            <article role="article" id="post" class="post-content" itemprop="articleBody">
-                <p itemprop="post-info" class="post-info">
-                    {% if page.date %}
-                        <svg id="date" class="icon-calendar"><use xlink:href="#icon-calendar"></use></svg>
-                        <time itemprop="datePublished" datetime="{{ page.date | date_to_xmlschema }}" class="date">
-                            {% include date.html date=page.date %}
-                        </time>
-                    {% endif %}
-                    <svg id="clock" class="icon-clock"><use xlink:href="#icon-clock"></use></svg>
-                    <span>{{ minutesText }}</span>
-                </p>
-                <h1 class="post-title" itemprop="name">{{ page.title }}</h1>
-                <p itemprop="description" class="subtitle">{{ page.description }}</p>
+<!-- Begin Article
+================================================== -->
+<div class="container">
+	<div class="row">
 
-                {% if page.image %}
-                    <img src="{{ page.image }}" alt="Imagem de capa" class="post-cover">
+		<!-- Post Share -->
+		<div class="col-md-2 pl-0">            
+           {% include share.html %}  
+		</div>
+		
+
+		<!-- Post -->        
+        {% assign author = site.authors[page.author] %}
+        
+		<div class="col-md-9 flex-first flex-md-unordered">
+			<div class="mainheading">
+
+                <!-- Author Box -->
+                {% if page.author %}				
+				<div class="row post-top-meta">
+					<div class="col-md-2">
+						<img class="author-thumb" src="https://www.gravatar.com/avatar/{{ author.gravatar }}?s=250&d=mm&r=x" alt="{{ author.display_name }}">
+					</div>
+					<div class="col-md-10">
+						<a target="_blank" class="link-dark" href="{{ author.web }}">{{ author.display_name }}</a><a target="_blank" href="{{ author.twitter }}" class="btn follow">Follow</a>
+						<span class="author-description">{{ author.description }}</span>						
+					</div>
+				</div>				
                 {% endif %}
+                
+                <!-- Post Title -->
+				<h1 class="posttitle">{{ page.title }}</h1> 
+                
+			</div>
 
-                {{ content }}
-            </article>
+			<!-- Post Featured Image -->
+			{% if page.image %}<img class="featured-image img-fluid" src="{{ site.baseurl }}/{{ page.image }}" alt="{{ page.title }}">{% endif %}
+			<!-- End Featured Image -->
 
-            <div class="progress-bar" data-minutes="{{ totalMinutes }}">
-                <span class="time-completed"></span>
-                <span class="time-remaining"></span>
-                <div class="bar">
-                    <span class="completed" style="width:0%;"></span>
-                    <span class="remaining" style="width:100%;"></span>
-                </div>
+			<!-- Post Content -->
+			<div class="article-post">
+				{{content}}
+			</div>
+
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date_to_string }}</time></span>           
+                {% if page.last_modified_at %}
+                (Updated: <time datetime="{{ page.last_modified_at | date_to_xmlschema }}" itemprop="dateModified">{{ page.last_modified_at | date: "%b %-d, %Y" }}</time>)
+                {% endif %}
+                </small>
+            </p>
+            
+			<!-- Post Categories -->
+			<div class="after-post-tags">
+				<ul class="tags">
+                    {% assign sortedCategories = page.categories | sort %}
+                    {% for category in sortedCategories %}
+                    <li>
+                     <a href="{{ site.baseurl }}/category/{{ category | slugify }}/">{{ category }}</a>
+                    </li>
+                    {% endfor %}
+				</ul>
+			</div>
+			<!-- End Categories -->
+            
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            {% if page.previous.url %}
+            <a class="prev d-block col-md-6" href="{{page.previous.url | absolute_url}}"> &laquo; {{page.previous.title}}</a>
+            {% endif %}
+            {% if page.next.url %}
+            <a class="next d-block col-md-6 text-lg-right" href="{{page.next.url | absolute_url}}">{{page.next.title}} &raquo; </a>
+            {% endif %}
+            <div class="clearfix"></div>
             </div>
+            <!-- End Categories -->
 
-            {% include share.html %}
-            {% include author.html %}
-            {% include comments.html %}
-            {% include footer.html %}
-        </section>
-    </body>
-</html>
+		</div>
+		<!-- End Post -->
+
+	</div>
+</div>
+<!-- End Article
+================================================== -->
+
+  
+
+<!-- Begin Comments
+================================================== -->
+<div class="container">
+    <div id="comments" class="row justify-content-center mb-5">
+        <div class="col-md-8">              
+            {% include disqus.html %}                
+        </div>
+    </div>
+</div>
+<!--End Comments
+================================================== -->
