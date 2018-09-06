@@ -1,107 +1,88 @@
 ---
 layout: default
-disqus: false
-archive: false
-post_class: post-template
 ---
+{% include header.html %}
 
-<!-- Begin Article
-================================================== -->
-<div class="container">
-	<div class="row">
+<main class="post_content">
+  <article class="post">
+    <header>
+      <div class="post_image">
+        <img src={{ "/assets/img/" | prepend: site.baseurl | append : page.img}} alt="{{page.title}}">
+      </div>
+      <div class="post_description">
+        <p class="post_meta">{{page.date | date: '%Y, %b %d'}}</p>
+        <h1 class="post_title">{{page.title}}</h1>
+      </div>
+    </header> <!-- End Header -->
 
-		<!-- Post Share -->
-		<div class="col-md-2 pl-0">            
-           {% include share.html %}  
-		</div>
-		
-
-		<!-- Post -->        
-        {% assign author = site.authors[page.author] %}
-        
-		<div class="col-md-9 flex-first flex-md-unordered">
-			<div class="mainheading">
-
-                <!-- Author Box -->
-                {% if page.author %}				
-				<div class="row post-top-meta">
-					<div class="col-md-2">
-						<img class="author-thumb" src="https://www.gravatar.com/avatar/{{ author.gravatar }}?s=250&d=mm&r=x" alt="{{ author.display_name }}">
-					</div>
-					<div class="col-md-10">
-						<a target="_blank" class="link-dark" href="{{ author.web }}">{{ author.display_name }}</a><a target="_blank" href="{{ author.twitter }}" class="btn follow">Follow</a>
-						<span class="author-description">{{ author.description }}</span>						
-					</div>
-				</div>				
-                {% endif %}
-                
-                <!-- Post Title -->
-				<h1 class="posttitle">{{ page.title }}</h1> 
-                
-			</div>
-
-			<!-- Post Featured Image -->
-			{% if page.image %}<img class="featured-image img-fluid" src="{{ site.baseurl }}/{{ page.image }}" alt="{{ page.title }}">{% endif %}
-			<!-- End Featured Image -->
-
-			<!-- Post Content -->
-			<div class="article-post">
-				{{content}}
-			</div>
-
-            <!-- Post Date -->
-            <p>
-            <small>
-                <span class="post-date"><time class="post-date" datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date_to_string }}</time></span>           
-                {% if page.last_modified_at %}
-                (Updated: <time datetime="{{ page.last_modified_at | date_to_xmlschema }}" itemprop="dateModified">{{ page.last_modified_at | date: "%b %-d, %Y" }}</time>)
-                {% endif %}
-                </small>
-            </p>
-            
-			<!-- Post Categories -->
-			<div class="after-post-tags">
-				<ul class="tags">
-                    {% assign sortedCategories = page.categories | sort %}
-                    {% for category in sortedCategories %}
-                    <li>
-                     <a href="{{ site.baseurl }}/category/{{ category | slugify }}/">{{ category }}</a>
-                    </li>
-                    {% endfor %}
-				</ul>
-			</div>
-			<!-- End Categories -->
-            
-            <!-- Prev/Next -->
-            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
-            {% if page.previous.url %}
-            <a class="prev d-block col-md-6" href="{{page.previous.url | absolute_url}}"> &laquo; {{page.previous.title}}</a>
-            {% endif %}
-            {% if page.next.url %}
-            <a class="next d-block col-md-6 text-lg-right" href="{{page.next.url | absolute_url}}">{{page.next.title}} &raquo; </a>
-            {% endif %}
-            <div class="clearfix"></div>
-            </div>
-            <!-- End Categories -->
-
-		</div>
-		<!-- End Post -->
-
-	</div>
-</div>
-<!-- End Article
-================================================== -->
-
-  
-
-<!-- Begin Comments
-================================================== -->
-<div class="container">
-    <div id="comments" class="row justify-content-center mb-5">
-        <div class="col-md-8">              
-            {% include disqus.html %}                
-        </div>
+    <div class="entry_content">
+      {{page.content | markdownify}}
     </div>
-</div>
-<!--End Comments
-================================================== -->
+    
+    <div class="post_wrapper">
+      <footer class="post_footer cf">
+        <div class="post_share">
+          <span>Share:</span>
+          <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}" title="Share on Twitter" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+          <a href="https://facebook.com/sharer.php?u={{ site.url }}{{ page.url }}" title="Share on Facebook" rel="nofollow" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+          <a href="https://plus.google.com/share?url={{ site.url }}{{ page.url }}" title="Share on Google+" rel="nofollow" target="_blank"><i class="fa fa-google" aria-hidden="true"></i></a>
+        </div>
+        <div class="post_tag">
+          <span>Tags:</span>
+          {% for tag in page.tags %}
+          <a href="{{site.baseurl}}/tags#{{tag}}" class="tag">{{ tag }}</a>
+          {% endfor %}
+        </div>
+      </footer>
+    </div>
+  </article> <!-- End Section Post -->
+
+  <section class="author cf">
+    <div class="post_wrapper">
+      <div class="author_image">
+        <img src="{{site.baseurl}}/assets/img/{% if site.author-pic %}{{ site.author-pic }}{% endif %}" alt="Author face">
+      </div>
+      <div class="author_info">
+        <h2 class="author_title">{% if site.author-name %}{{site.author-name}}{% else %}Dwayne Newman{% endif %}</h2>
+        <p class="author_subtitle">{% if site.about-author %}{{site.about-author}}{% else %}La croix godard blue bottle, vape iceland fingerstache cronut single-origin coffee lyft snackwave normcore small batch.{% endif %}</p>
+        <div class="author_social">
+          {% if site.email %}
+          <span class="author_email"><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:{{site.email}}">{{site.email}}</a></span>
+          {% else %}
+          <span class="author_email"><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:dwayne@example.com">dwayne@example.com</a></span>
+          {% endif %}
+          
+          {% if site.phone %}
+          <span class="author_phone"><i class="fa fa-phone" aria-hidden="true"></i> <a href="tel:{{site.phone}}">{{site.phone}}</a></span>
+          {% else %}
+          <span class="author_phone"><i class="fa fa-phone" aria-hidden="true"></i> <a href="tel:+496-169-65-57">(496)-169-6557</a></span>
+          {% endif %}
+
+          {% if site.website %}
+          <span class="author_website"><i class="fa fa-link" aria-hidden="true"></i> <a href="{{site.website}}" target="_blank">{{site.website}}</a></span>
+          {% else %}
+          <span class="author_website"><i class="fa fa-link" aria-hidden="true"></i> <a href="#" target="_blank">https://dwayne.example.com</a></span>
+          {% endif %}            
+        </div>
+      </div>
+    </div>
+  </section> <!-- End Section Author -->
+
+  <section class="recent_box">
+    <div class="post_wrapper">
+      <h2 class="recent_title">Recent post</h2>
+      <div class="recent_list">
+        {% for post in site.posts offset:0 limit:6 %}
+          {% if post.title %}
+            <a href="{{ root_url }}{{ post.url }}" class="recent_item" style="background-image: url( {{ "/assets/img/" | prepend: site.baseurl | append : post.img}} )"><span>{{ post.title }}</span></a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </section> <!-- End Section Recent Box -->
+  
+  {% include disqus.html %}
+  
+</main> <!-- End Section Post Content -->
+
+{% include footer.html %}

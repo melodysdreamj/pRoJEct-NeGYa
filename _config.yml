@@ -1,50 +1,52 @@
-# Site
-name: "Mediumish"
-description: "Jekyll Template for Blogging"
-meta_description: "Jekyll template, Medium styled, free for bloggers."
-logo: 'assets/images/logo.png'
-favicon: 'assets/images/logo.png'
-baseurl: /
-google_analytics: 'UA-46278016-1'
-disqus: 'demowebsite'
-mailchimp-list: 'https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b'
+logo: # add logo name
+title: Bef - Enjoy Freedom
+description: > # this means to ignore newlines until "baseurl:"
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+permalink: ':title/'
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://songdo-ai-study.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 
-# Authors
-authors:
-  sal:
-    name: Sal
-    display_name: Sal
-    gravatar: e56154546cf4be74e393c62d1ae9f9d4
-    email: wowthemesnet@gmail.com
-    web: https://songdo-ai-study.github.io/
-    twitter: https://twitter.com/wowthemesnet
-    description: "Author of Mediumish, a Bootstrap Medium styled template available for WordPress, HTML, Ghost and Jekyll. You are currently previewing Jekyll template demo."
-  john:
-    name: John
-    display_name: John
-    gravatar: b1cc14991db7a456fcd761680bbc8f81
-    email: wowthemesnet@gmail.com
-    web: https://songdo-ai-study.github.io/
-    twitter: https://twitter.com/wowthemesnet
-    description: "This is the author box. Write a short description of the author here. You are currently previewing Mediumish demo, a Jekyll template compatible with Github pages."
+# Banner settings
+video: mountains.mp4 # add banner video. Add your video file to the folder video
+banner-title: # add banner title
+banner-desc: # add banner description
 
-# Plugins
-plugins: 
-  - jekyll-paginate
-  - jekyll-archives
-    
-# Archives
-jekyll-archives:
-  enabled:
-    - categories
-  layout: archive
-  permalinks:
-    category: '/category/:name/'
-    
-# Pagination 
-paginate: 6
+# Author settings
+author-pic: face.jpg # your photo
+author-name: # your name
+about-author: # about author
+email: your-email@domain.com # your email
+phone: (496)-169-6557 # your pnone number
+website: https://dwayne.example.com # you website
+
+# Social link
+google_url:    # add url link
+twitter_url:   # add url link
+instagram_url: # add url link
+pinterest_url: # add url link
+dribbble_url:  # add url link
+facebook_url:  # add url link
+
+# Disqus
+discus_identifier: mr-brown # add your discus identifier
+
+# Newsletter
+mailchimp: # add your MailChimp form identifier. For example - blogenjoyfreedom.us16.list-manage.com/subscribe/post?u=cd56155d76ddeeb4c0bc4d080&amp;id=7a526cd13e
+
+# Tracker
+analytics:
+
+# Paginate
+paginate: 12
 paginate_path: /page:num/
-    
-# Other
+
+# Build settings
 markdown: kramdown
-highlighter: rouge
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+
+include: [_pages]
+exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock"]
