@@ -4,7 +4,7 @@ modal-id: 1
 date: 2018-09-07
 img: cabin.png
 alt: image-alt
-project-date: 2018-09-07
+project-date: 2018 9
 장소: 인천대 5층 강의실
 category: Web Development
 description: 이준규 - STDP에 대해서, 기존역전파와 어떻게 다른지 설명
