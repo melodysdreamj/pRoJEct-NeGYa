@@ -1,0 +1,12 @@
+---
+layout: default
+modal-id: 1
+date: 2018-09-07
+img: cabin.png
+alt: image-alt
+project-date: 9 2018
+장소: 인천대 5층 강의실
+category: Web Development
+description: 이준규 - STDP에 대해서, 기존역전파와 어떻게 다른지 설명 \n\n 백지훈 - 업스케일링에 대해서 참고자료 --> https://raw.githubusercontent.com/nagadomi/waifu2x/master/images/slide.png \n\n 박훈범 - 딥러닝이 물리학에 사용되는 방법 과 기타 유용한 사이트들 --> \n https://github.com/google/dopamine \n https://www.youtube.com/channel/UCNrehnUq7Il-J7HQxrzp7CA \n https://medium.mybridge.co/30-amazing-machine-learning-projects-for-the-past-year-v-2018-b853b8621ac7
+
+---
