@@ -1,8 +1,8 @@
 ## Settings
-title: "인공지능스터다"
+title: 인공지능스터디 
 owner: "송도"
-url: "https://songdo-AI-study.github.io"
-baseurl: "/pRoJEct-NeGYa/"
+url: "https://akiritsu.github.io"
+baseurl: "/pRoJEct-NeGYa"
 permalink: /:title/
 description: ""
 markdown: kramdown
