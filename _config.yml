@@ -1,7 +1,7 @@
 ## Settings
 title: 인공지능스터디 
 owner: "송도"
-url: "https://akiritsu.github.io"
+url: "https://songdo-ai-study.github.io"
 baseurl: "/pRoJEct-NeGYa"
 permalink: /:title/
 description: ""
@@ -11,7 +11,7 @@ webrick:
     Access-Control-Allow-Origin: "*"
 ## Global Variables
 email: "melodysdreamj@gmail.com"
-github: "songdo-AI-study/homepage"
+github: "songdo-AI-study/pRoJEct-NeGYa"
 # path to: css/, fonts/, img/ and js/
 assets_path: "/assets" # i.e. "/assets" 
 statement: "Designed by DeerRIDER, All Rights Reserved"
