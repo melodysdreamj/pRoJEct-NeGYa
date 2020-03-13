@@ -1,40 +1,47 @@
-# Bef is a responsive jekyll theme
+# PRoJEct-NeGYa
 
-Bef - Blog Enjoy Freedom is a responsive jekyll theme which created to be simple and freedom.
+黑客风格的个人主页模板。
 
-## Demo
+版本： v1.01
 
-Check the theme in action [Demo](https://artemsheludko.github.io/bef/)
+## 特性
 
-The main page would look like this:
+1. 狂拽酷炫
+2. Rouge支持代码高亮
+3. MathJax公式
+4. 文章索引
+5. 高度可定制化
+6. 加密内容（也可以把元素id改成密文，元素内容写“无该字段访问权限！”）
 
-![Main page preview](https://github.com/artemsheludko/bef/blob/master/assets/img/bef_main_page.jpg?raw=true)
+## 更新日志
 
-The post page would look like this:
+2019.7.17：更新说明文件
 
-![Post page preview](https://github.com/artemsheludko/bef/blob/master/assets/img/bef_post.jpg?raw=true)
+2019.6.15：老子就做这一版，凑合能用得了，我可不改了啊！
 
-## Features
+## 使用方法
 
-- [Google Fonts](https://fonts.google.com/)
-- [Font Awesome](http://fontawesome.io/)
-- [Vide](http://vodkabears.github.io/vide/)
-- [Disqus](https://disqus.com/)
-- [MailChimp](https://mailchimp.com/)
-- [Formspree!](https://formspree.io/)
-- [Analytics](https://analytics.google.com/analytics/web/)
-- Share Buttons, Recent Post, Section Author, Contact and more...
+* 下载或者fork到自己的github仓库里
+* 修改_config.yml文件
+* （自定义域名）修改CNAME文件
+* 修改pages/index.md文件，自定义主页
+* 删除_posts/文件夹里的文件，添加自己的文章
+* 同步到github远程仓库
 
-## Installation:
+## 工程结构
 
-Fork the ``master`` branch and delete ``gh-pages`` branch in it. This is important because ``gh-pages`` branch is used here only to host the blog. You should be using the master branch as the source and create a fresh ``gh-pages`` branch.
+功能和内容隔离TMD！
 
-## License
+网站内容：
+* _posts：文章
+* pages：页面
+* assets/img：图
 
-GNU General Public License v3.0
+功能样式：
+* _includes：子页面模块
+* _layouts：页面模板（单纯地组合子页面模块）
+* assets/css：样式表文件
+* assets/fonts：字体文件
+* assets/js：脚本文件
+* _config.yml：配置文件
 
-## Donate
-
-<p>If you want to show your appreciation, buy me one <a href="https://www.buymeacoffee.com/artemsheludko" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a> ! Every five cups of coffee and a new theme for Jekyll is ready 😋</p>
-<p>Either way, your support is a way to thank me ❤️</p>
-<p align="center"><b>Thank you for your support!</b></p>

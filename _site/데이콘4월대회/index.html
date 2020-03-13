@@ -6,13 +6,13 @@
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <!-- site description -->
   
-  <meta content="" name="description" />
+  <meta content="PRoJEct-Starcraft" name="description" />
   <!-- referer for 3rd-part images-->
   <meta content="no-referrer" name="referrer" />
   <!-- title -->
   <title>
     
-    
+    데이콘3월정기대회 - 스타크래프트 승률예측
     
   </title>
   <!-- icon -->
@@ -106,27 +106,35 @@
                 
                 <!-- access token -->
                 
-                    <a class="header_btn" id="acs_btn" onclick="apply_token()">
-                        <i class="fa fa-key">
-                            
-                                <p class="btn_text">Token</p>
-                            
-                        </i>
-                    </a>
-                    <textarea class="access_token" cols="8" id="acs_tkn" rows="1"></textarea>
-                
             </li>
             <!-- right header -->
             <span
                 class="span_right">
                 <!-- popup table of content -->
                 
-                    <a class="title">인공지능스터다</a>
-                    
-                        <a class="owner">
-                            -
-                            송도</a>
-                    
+                    <a class="header_btn" onclick="scroll_percentage(-0.88)">
+                        <i class="fa fa-backward">
+                            
+                                <p class="btn_text">Prev</p>
+                            
+                        </i>
+                    </a>
+                    <!-- scroll down -->
+                    <a class="header_btn" onclick="scroll_percentage(0.88)">
+                        <i class="fa fa-forward">
+                            
+                                <p class="btn_text">Next</p>
+                            
+                        </i>
+                    </a>
+                    <!-- popup table of content -->
+                    <a class="header_btn popup_btn" onclick="toggle_toc()">
+                        <i class="fa fa-bars">
+                            
+                                <p class="btn_text">Content</p>
+                            
+                        </i>
+                    </a>
                 
             </span>
         </ul>
@@ -134,6 +142,35 @@
     <hr/>
 </div>
 <!-- table of content -->
+
+    <div class="div_toc toc" id="popup_toc">
+    
+    <!-- generate toc -->
+    <ul id="ul_toc" class="ul_toc">
+  <li><a href="#project-starcraft">PRoJEct-Starcraft</a>
+    <ul>
+      <li><a href="#참여설명">참여설명</a></li>
+      <li><a href="#순서">순서</a></li>
+      <li><a href="#신청링크">신청링크</a></li>
+    </ul>
+  </li>
+</ul>
+    </div>
+    <!-- toggle toc -->
+    <script>
+    function toggle_toc() {
+        var popup = document.getElementById("popup_toc");
+        popup.classList.toggle("show");
+    }
+    </script>
+    <!-- scroll page -->
+        <script>
+    function scroll_percentage(mtpler) {
+        document
+        .getElementById("div_atcl")
+        .scrollBy(0, window.innerHeight * mtpler);
+    }
+    </script>
 
 <!-- toggle maximize -->
 
@@ -165,93 +202,63 @@
 
 <!-- encrypt and decrypt -->
 
-    <script src="http://localhost:4000/pRoJEct-NeGYa//assets/js/sjcl.js" async></script>
-    <script>
-  function decrypt_all(pwd, class_name) {
-    var elem_clct = document.getElementsByClassName(class_name);
-    if (elem_clct.length == 0) {
-      console.log("No texts to decrypt!");
-      return false;
-    }
-    for (acc = 0; acc < elem_clct.length; acc++) {
-      var encrypted = elem_clct[acc].id;
-      var ct =
-        '{"iv":"' +
-        encrypted.substring(0, 22) +
-        '==",salt:"","ct":"' +
-        encrypted.substring(22) +
-        '"}';
-      try {
-        var txt = sjcl.json.decrypt(pwd, ct);
-      } catch (e) {
-        alert("Invalid Access Token!");
-        return;
-      }
-      elem_clct[acc].innerHTML = txt;
-    }
-    return true;
-  }
-  function apply_token() {
-    var tkn = document.getElementById("acs_tkn");
-    if (decrypt_all(tkn.value, "encrypted")) {
-      tkn.style.display = "none";
-      document.getElementById("acs_btn").style.display = "none";
-    }
-  }
-</script>
-
 
       <div class="div_article" id="div_atcl">       
         <article id="main_atcl" itemscope itemtype="http://schema.org/BlogPosting">
-          <h1 id="송도-인공지능-스터디에-오신것을-따뜻하게-환영합니다">송도 인공지능 스터디에 오신것을 따뜻하게 환영합니다^^</h1>
+          <h1>
+  데이콘3월정기대회 - 스타크래프트 승률예측
+</h1>
+<div class="post_info">
+  <!-- author -->
+  
+  <!-- date -->
+  
+  <span>
+    <i class="fa fa-calendar"></i>
+    Mar 13, 2020
+  </span>
+  
+  <!-- category -->
+  
+  <span>
+    <i class="fa fa-archive"></i>
+    competition
+  </span>
+  
+</div>
+<!-- abstract -->
+<div class="abstract">
+  
+</div>
 
-<h2 id="활동">활동</h2>
+<h1 id="project-starcraft">PRoJEct-Starcraft</h1>
+
+<p><a href="https://dacon.io/competitions/official/235583/overview/">대회링크</a></p>
+
+<h2 id="참여설명">참여설명</h2>
+
+<ol>
+  <li>매주11시부터 12시에 진행됩니다.</li>
+  <li>참석후에 역활을 맡은주에는 10~20분정도 발표를 준비해야합니다.</li>
+  <li>코랩을 기본으로 진행합니다.</li>
+</ol>
+
+<h2 id="순서">순서</h2>
+
 <ul>
-  <li>매달 인공지능대회참여</li>
-  <li>매주 최신 인공지능뉴우-스 같이 공유</li>
-  <li>분기별 인공지능 익스텐디드 개최</li>
-  <li>인공지능작품전시회 개최 예정</li>
+  <li>1주차 - 대회 데이터분석(데이터형태에 대해서 의견교류)</li>
+  <li>2주차 - 대회 솔루션 탐색(관련논문이나 솔루션등을 조사)</li>
+  <li>3주차이후 - 모델 만들고 대회참여</li>
 </ul>
 
+<h2 id="신청링크">신청링크</h2>
+
+<p><a href="https://forms.gle/hiC71KnXsfhUU7L5A">이쪽</a>에서 신청해주세요</p>
+
+
 
           
-<!-- list of articles: sort by date (by default) -->
-<h1 class="loa">참여한대회 및 모임기록들</h1>
-<table>
-  <thead>
-    <tr>
-      <th> TITLE </th>
-      <th> DATE </th>
-      <th> CATEGORY </th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    </tr>
-    <td class="td_title"><a href="http://localhost:4000/pRoJEct-NeGYa//%EB%8D%B0%EC%9D%B4%EC%BD%984%EC%9B%94%EB%8C%80%ED%9A%8C/">데이콘3월정기대회 - 스타크래프트 승률예측</a></td>
-    <td class="td_date">Mar 13, 20</td>
-    <td class="td_category">competition</td>
-    </tr>
-    
-  </tbody>
-</table>
-
         </article>
-          
-          <div class="footer">
-    <nav class="nav_bar">
-        <ul>
-            <li class="copyright">
-                © 2019
-            </li>
-            
-            <li>
-                Designed by DeerRIDER, All Rights Reserved
-            </li>
-            
-    </nav>
-    </ul>
-</div>
           
       </div>
     </div>
