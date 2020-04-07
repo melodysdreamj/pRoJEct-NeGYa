@@ -12,7 +12,7 @@
   <!-- title -->
   <title>
     
-    
+    데이콘3월정기대회 첫주회의록
     
   </title>
   <!-- icon -->
@@ -106,27 +106,35 @@
                 
                 <!-- access token -->
                 
-                    <a class="header_btn" id="acs_btn" onclick="apply_token()">
-                        <i class="fa fa-key">
-                            
-                                <p class="btn_text">Token</p>
-                            
-                        </i>
-                    </a>
-                    <textarea class="access_token" cols="8" id="acs_tkn" rows="1"></textarea>
-                
             </li>
             <!-- right header -->
             <span
                 class="span_right">
                 <!-- popup table of content -->
                 
-                    <a class="title">인공지능스터디</a>
-                    
-                        <a class="owner">
-                            -
-                            송도</a>
-                    
+                    <a class="header_btn" onclick="scroll_percentage(-0.88)">
+                        <i class="fa fa-backward">
+                            
+                                <p class="btn_text">Prev</p>
+                            
+                        </i>
+                    </a>
+                    <!-- scroll down -->
+                    <a class="header_btn" onclick="scroll_percentage(0.88)">
+                        <i class="fa fa-forward">
+                            
+                                <p class="btn_text">Next</p>
+                            
+                        </i>
+                    </a>
+                    <!-- popup table of content -->
+                    <a class="header_btn popup_btn" onclick="toggle_toc()">
+                        <i class="fa fa-bars">
+                            
+                                <p class="btn_text">Content</p>
+                            
+                        </i>
+                    </a>
                 
             </span>
         </ul>
@@ -134,6 +142,35 @@
     <hr/>
 </div>
 <!-- table of content -->
+
+    <div class="div_toc toc" id="popup_toc">
+    
+    <!-- generate toc -->
+    <ul id="ul_toc" class="ul_toc">
+  <li><a href="#project-starcraft">PRoJEct-Starcraft</a>
+    <ul>
+      <li><a href="#참여맴버">참여맴버</a></li>
+      <li><a href="#회의내용">회의내용</a></li>
+      <li><a href="#이번주목표">이번주목표</a></li>
+    </ul>
+  </li>
+</ul>
+    </div>
+    <!-- toggle toc -->
+    <script>
+    function toggle_toc() {
+        var popup = document.getElementById("popup_toc");
+        popup.classList.toggle("show");
+    }
+    </script>
+    <!-- scroll page -->
+        <script>
+    function scroll_percentage(mtpler) {
+        document
+        .getElementById("div_atcl")
+        .scrollBy(0, window.innerHeight * mtpler);
+    }
+    </script>
 
 <!-- toggle maximize -->
 
@@ -165,111 +202,64 @@
 
 <!-- encrypt and decrypt -->
 
-    <script src="https://songdo-ai-study.github.io/pRoJEct-NeGYa/assets/js/sjcl.js" async></script>
-    <script>
-  function decrypt_all(pwd, class_name) {
-    var elem_clct = document.getElementsByClassName(class_name);
-    if (elem_clct.length == 0) {
-      console.log("No texts to decrypt!");
-      return false;
-    }
-    for (acc = 0; acc < elem_clct.length; acc++) {
-      var encrypted = elem_clct[acc].id;
-      var ct =
-        '{"iv":"' +
-        encrypted.substring(0, 22) +
-        '==",salt:"","ct":"' +
-        encrypted.substring(22) +
-        '"}';
-      try {
-        var txt = sjcl.json.decrypt(pwd, ct);
-      } catch (e) {
-        alert("Invalid Access Token!");
-        return;
-      }
-      elem_clct[acc].innerHTML = txt;
-    }
-    return true;
-  }
-  function apply_token() {
-    var tkn = document.getElementById("acs_tkn");
-    if (decrypt_all(tkn.value, "encrypted")) {
-      tkn.style.display = "none";
-      document.getElementById("acs_btn").style.display = "none";
-    }
-  }
-</script>
-
 
       <div class="div_article" id="div_atcl">       
         <article id="main_atcl" itemscope itemtype="http://schema.org/BlogPosting">
-          <h1 id="송도-인공지능-스터디에-오신것을-따뜻하게-환영합니다">송도 인공지능 스터디에 오신것을 따뜻하게 환영합니다^^</h1>
+          <h1>
+  데이콘3월정기대회 첫주회의록
+</h1>
+<div class="post_info">
+  <!-- author -->
+  
+  <!-- date -->
+  
+  <span>
+    <i class="fa fa-calendar"></i>
+    Mar 21, 2020
+  </span>
+  
+  <!-- category -->
+  
+  <span>
+    <i class="fa fa-archive"></i>
+    competition
+  </span>
+  
+</div>
+<!-- abstract -->
+<div class="abstract">
+  
+</div>
 
-<h2 id="활동">활동</h2>
+<p><img src="https://i.ytimg.com/vi/i2MphoAC1uQ/maxresdefault.jpg" alt="img-smpl" /></p>
+
+<h1 id="project-starcraft">PRoJEct-Starcraft</h1>
+
+<p><a href="https://dacon.io/competitions/official/235583/overview/">대회링크</a></p>
+
+<h2 id="참여맴버">참여맴버</h2>
+
+<ol>
+  <li>팀장 - 이강호,이준규,백지훈,손덕진,박훈범</li>
+  <li>팀원 - 유창준,박경수,최준영,김재민,차동우,문영기,박세영,손다훈</li>
+</ol>
+
+<h2 id="회의내용">회의내용</h2>
+
 <ul>
-  <li>매달 인공지능대회참여</li>
-  <li>매주 최신 인공지능뉴우-스 같이 공유</li>
-  <li>분기별 인공지능 익스텐디드 개최</li>
-  <li>인공지능작품전시회 개최 예정</li>
+  <li>팀결성</li>
+  <li>베이스코드를 코랩에서 사용법 공유</li>
+</ul>
+
+<h2 id="이번주목표">이번주목표</h2>
+
+<ul>
+  <li>본선진출시한이 촉박함으로 이번주에 본선진출을 위한 점수받는것을 목표로합니다</li>
 </ul>
 
 
           
-<!-- list of articles: sort by date (by default) -->
-<h1 class="loa">참여한대회 및 모임기록들</h1>
-<table>
-  <thead>
-    <tr>
-      <th> TITLE </th>
-      <th> DATE </th>
-      <th> CATEGORY </th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    </tr>
-    <td class="td_title"><a href="https://songdo-ai-study.github.io/pRoJEct-NeGYa/%EB%8D%B0%EC%9D%B4%EC%BD%983%EC%9B%94%EB%8C%80%ED%9A%8C-%EB%91%98%EC%A7%B8%EC%A3%BC/">데이콘3월정기대회 둘째주회의록</a></td>
-    <td class="td_date">Apr 04, 20</td>
-    <td class="td_category">competition</td>
-    </tr>
-    
-    </tr>
-    <td class="td_title"><a href="https://songdo-ai-study.github.io/pRoJEct-NeGYa/%EB%8D%B0%EC%9D%B4%EC%BD%983%EC%9B%94%EB%8C%80%ED%9A%8C-%EB%91%98%EC%A7%B8%EC%A3%BC/">데이콘3월정기대회 둘째주회의록</a></td>
-    <td class="td_date">Mar 28, 20</td>
-    <td class="td_category">competition</td>
-    </tr>
-    
-    </tr>
-    <td class="td_title"><a href="https://songdo-ai-study.github.io/pRoJEct-NeGYa/%EB%8D%B0%EC%9D%B4%EC%BD%983%EC%9B%94%EB%8C%80%ED%9A%8C-%EC%B2%AB%EC%A3%BC/">데이콘3월정기대회 첫주회의록</a></td>
-    <td class="td_date">Mar 21, 20</td>
-    <td class="td_category">competition</td>
-    </tr>
-    
-    </tr>
-    <td class="td_title"><a href="https://songdo-ai-study.github.io/pRoJEct-NeGYa/%EB%8D%B0%EC%9D%B4%EC%BD%983%EC%9B%94%EB%8C%80%ED%9A%8C/">데이콘3월정기대회 - 스타크래프트 승률예측</a></td>
-    <td class="td_date">Mar 13, 20</td>
-    <td class="td_category">competition</td>
-    </tr>
-    
-  </tbody>
-</table>
-
         </article>
-          
-          <div class="footer">
-    <nav class="nav_bar">
-        <ul>
-            <li class="copyright">
-                © 2019
-            </li>
-            
-            <li>
-                Designed by DeerRIDER, All Rights Reserved
-            </li>
-            
-    </nav>
-    </ul>
-</div>
           
       </div>
     </div>
